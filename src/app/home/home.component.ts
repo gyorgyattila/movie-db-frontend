@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
         this.films = films;
       }
     );
-    this.dataStorageService.getFilms();
+    this.dataStorageService.getTopFourFilms();
   }
 
 }

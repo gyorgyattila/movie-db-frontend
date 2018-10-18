@@ -8,13 +8,15 @@ import {HeaderComponent} from './header/header.component';
 import {AppRoutingModel} from './app.routing-model';
 import {HttpClientModule} from '@angular/common/http';
 import {FilmService} from './services/film.service';
+import {NowPlayingComponent} from './now-playing/now-playing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilmComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    NowPlayingComponent
   ],
   imports: [
     HttpClientModule,
