@@ -1,6 +1,6 @@
 export class FilmModel {
   title: string;
-  id: number;
+  film_id: number;
   poster_path: string;
   vote_average: number;
   overview: string;
@@ -9,7 +9,7 @@ export class FilmModel {
 
   constructor(title: string, id: number, poster_path: string, vote_average: number, overview: string, genres: string[]) {
     this.title = title;
-    this.id = id;
+    this.film_id = id;
     this.poster_path = poster_path;
     this.vote_average = vote_average;
     this.overview = overview;
