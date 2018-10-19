@@ -11,6 +11,8 @@ import {FilmService} from './services/film.service';
 import {NowPlayingComponent} from './now-playing/now-playing.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {CommentComponent} from './comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     FilmComponent,
     HomeComponent,
     HeaderComponent,
-    NowPlayingComponent
+    NowPlayingComponent,
+    CommentComponent
   ],
   imports: [
     NgbModule,
@@ -26,7 +29,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     BrowserModule,
     AppRoutingModel,
     AngularFontAwesomeModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [FilmService],
   bootstrap: [AppComponent]

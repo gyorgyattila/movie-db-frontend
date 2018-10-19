@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="form-group">
+          <label for="commentText" style="font-size: 20px; color: white">Here comes your comment: </label>
+          <textarea name="commentText" id="commentText" cols="30" rows="8" class="form-control"
+                    placeholder="Write comments" required ngModel></textarea>
+        </div>
+        <div class="wrapper">
+          <button class="btn btn-primary" type="submit">Post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -17,7 +17,7 @@ export class NowPlayingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.filmService.professorListChanged.subscribe(
+    this.filmService.filmListChanged.subscribe(
       (films: FilmModel[]) => {
         this.films = films;
       }

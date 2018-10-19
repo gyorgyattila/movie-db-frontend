@@ -29,11 +29,11 @@ export class DataStorageService {
   }
 
   async getFilm(id: string) {
-    console.log(id);
     const film = await this.httpClient.get<FilmModel>(`http://0.0.0.0:8080/film/${id}`).toPromise();
     this.filmService.setFilm(new FilmModel(film['title'], film['filmId'], 'http://image.tmdb.org/t/p/w185/' + film['poster_path'], film['vote_average'], film['overview'], ['2', '2']));
   }
 
+//TODO:add get comments like above
 
 
 }

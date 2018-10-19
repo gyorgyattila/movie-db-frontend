@@ -33,7 +33,6 @@ export class FilmComponent implements OnInit, OnDestroy {
         this.film = film;
       }
     );
-    console.log(this.id);
     this.dataStorage.getFilm(String(this.id));
   }
 

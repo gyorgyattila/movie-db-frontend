@@ -3,7 +3,7 @@ import {Subject} from 'rxjs';
 
 export class FilmService {
   private films: FilmModel[];
-  professorListChanged = new Subject<FilmModel[]>();
+  filmListChanged = new Subject<FilmModel[]>();
   private activeFilm: FilmModel;
   filmChanged = new Subject<FilmModel>();
 
@@ -14,12 +14,10 @@ export class FilmService {
 
   setFilms(films: FilmModel[]) {
     this.films = films;
-    this.professorListChanged.next(films);
-    console.log(this.films);
+    this.filmListChanged.next(films);
   }
 
   getFilm(id: number) {
-    console.log(this.films);
     for (const film of this.films) {
       if (film['film_id'] === id) {
         return film;
