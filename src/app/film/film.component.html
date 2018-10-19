@@ -1,4 +1,53 @@
-<p>
-  film works!
-  {{film.title}}
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-xs-6">
+          <h1>{{film.title}}</h1>
+        </div>
+        <div class="col-xs-2" style="align-content: center">
+          <img src="https://techflourish.com/images/google-clip-art-images-11.jpg" alt="">
+          <p style="font-size: 35px;margin-left: 30px">{{film.vote_average}}</p>
+        </div>
+        <div class="col-xs-4">
+          <h4>Your rating: </h4>
+          <ngb-rating [(rate)]="currentRate" style="color: yellow"></ngb-rating>
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-xs-6">
+          <img src="{{film.poster_path}}" alt="" id="poster" class="img-responsive" alt="Responsive image">
+        </div>
+        <div class="col-xs-6">
+          <h3>Overview:</h3>
+          <p>{{film.overview}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-6">
+      <video width="" height="280" controls>
+        <source
+          src="https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/3250/10/266253140/985879521.mp4?token=1539969270-0x5c9b6b8ad2458330b9ea7e848e7389c671581235"
+          type="video/mp4">
+        <source src="movie.ogg" type="video/ogg">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

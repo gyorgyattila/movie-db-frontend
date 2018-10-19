@@ -13,6 +13,7 @@ import {Subscription} from 'rxjs';
 })
 export class FilmComponent implements OnInit, OnDestroy {
 
+  currentRate = 8;
   id: number;
   film: FilmModel;
   subscription: Subscription;
@@ -24,6 +25,7 @@ export class FilmComponent implements OnInit, OnDestroy {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['id'];
+        // this.film = this.filmService.getFilm(this.id);
       }
     );
     this.subscription = this.filmService.filmChanged.subscribe(
@@ -31,7 +33,6 @@ export class FilmComponent implements OnInit, OnDestroy {
         this.film = film;
       }
     );
-    console.log(this.film);
     console.log(this.id);
     this.dataStorage.getFilm(String(this.id));
   }

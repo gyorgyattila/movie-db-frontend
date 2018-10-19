@@ -8,7 +8,7 @@
     </div>
     <div class="col-md-2"></div>
   </div>
-  <div class="row" *ngFor="let film of films" style="margin-top: 10px">
+  <div class="row" *ngFor="let film of films | paginate: {itemsPerPage: 5, currentPage: p}" style="margin-top: 10px">
     <div class="col-md-2"></div>
     <div class="col-md-4">
       <div class="card" style="width: 18rem;">
@@ -20,9 +20,17 @@
         <div class="card-body">
           <h3 class="card-title">{{film.title}}</h3>
           <p class="card-text">Rating: {{film.vote_average}}</p>
-          <a href="#" class="btn btn-primary" style="margin-top: 50px">More Details</a>
+          <a [routerLink]="['/film', film.film_id]" href="#" class="btn btn-primary" style="margin-top: 50px">More
+            Details</a>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8" style="display: grid">
+      <hr>
+      <pagination-controls style="justify-self: center" (pageChange)="p = $event"></pagination-controls>
     </div>
   </div>
 </div>

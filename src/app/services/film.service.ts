@@ -15,11 +15,13 @@ export class FilmService {
   setFilms(films: FilmModel[]) {
     this.films = films;
     this.professorListChanged.next(films);
+    console.log(this.films);
   }
 
   getFilm(id: number) {
+    console.log(this.films);
     for (const film of this.films) {
-      if (film['filmId'] === id) {
+      if (film['film_id'] === id) {
         return film;
       }
     }

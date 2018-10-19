@@ -1,0 +1,36 @@
+h1 {
+  color: white;
+}
+
+img {
+  margin-top: 5px;
+  margin-left: 35px;
+  width: 45px;
+  height: 45px;
+}
+
+h4 {
+  margin-top: 15px;
+  color: white;
+}
+
+#poster {
+  width: auto;
+  height: auto;
+}
+
+video {
+  width: 100%;
+}
+
+h3 {
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+.col {
+  display: grid;
+}
