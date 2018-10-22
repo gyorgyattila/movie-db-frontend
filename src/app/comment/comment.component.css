@@ -6,3 +6,11 @@ button {
   font-size: 20px;
   width: 100px;
 }
+
+table {
+  background-color: white;
+}
+
+.borderless td, .borderless th {
+  border: none;
+}

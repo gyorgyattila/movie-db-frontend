@@ -2,6 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {CommentModel} from './comment.model';
 import {ActivatedRoute, Params} from '@angular/router';
+import {CommentService} from '../services/comment.service';
+import {DataStorageService} from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-comment',
@@ -16,7 +18,7 @@ export class CommentComponent implements OnInit {
   newComment: CommentModel;
 
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private commentService: CommentService, private daraStorage: DataStorageService) {
   }
 
   ngOnInit() {
@@ -25,15 +27,19 @@ export class CommentComponent implements OnInit {
         this.filmId = +params['id'];
       }
     );
-    // this.comment.statusChanges.subscribe(
-    //   (status) => console.log(status)
-    // );
+    this.commentService.commentsChanged.subscribe(
+      (comments: CommentModel[]) => {
+        this.comments = comments;
+      }
+    );
+    this.daraStorage.getCommentsForFilm(this.filmId.toString());
   }
 
   onSubmit() {
     this.newComment = new CommentModel(this.commentForm.value.commentText, this.filmId);
-    console.log(this.newComment);
-    console.log('itt vagyok');
+    this.comments.push(this.newComment);
+    this.daraStorage.addComment(this.newComment);
+    this.commentForm.reset();
   }
 
 }
