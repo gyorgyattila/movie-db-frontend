@@ -13,6 +13,7 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommentComponent} from './comment/comment.component';
+import {CommentService} from './services/comment.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import {CommentComponent} from './comment/comment.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [FilmService],
+  providers: [FilmService, CommentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
