@@ -7,10 +7,11 @@ import {FilmModel} from './film/film.model';
 import {FilmComponent} from './film/film.component';
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent, pathMatch: 'full'},
   {path: 'now-playing', component: NowPlayingComponent},
-  {path: 'film/:id', component: FilmComponent}
+  {path: 'film/:id', component: FilmComponent},
+  {path: '**', redirectTo: '/home'},
+
 ];
 
 @NgModule({

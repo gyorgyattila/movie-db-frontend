@@ -14,6 +14,19 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommentComponent} from './comment/comment.component';
 import {CommentService} from './services/comment.service';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule, MatCheckboxModule, MatInputModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {RouterModule} from '@angular/router';
+import {FilmFilterPipe} from './shared/film-filter.pipe';
+import {AuthService} from './services/auth.service';
+import {UserComponent} from './user/user.component';
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -22,9 +35,12 @@ import {CommentService} from './services/comment.service';
     HomeComponent,
     HeaderComponent,
     NowPlayingComponent,
-    CommentComponent
+    CommentComponent,
+    FilmFilterPipe,
+    UserComponent
   ],
   imports: [
+    RouterModule,
     NgbModule,
     HttpClientModule,
     BrowserModule,
@@ -32,9 +48,15 @@ import {CommentService} from './services/comment.service';
     AngularFontAwesomeModule,
     NgxPaginationModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule,
+    MatButtonModule,
   ],
-  providers: [FilmService, CommentService],
+  providers: [FilmService, CommentService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
