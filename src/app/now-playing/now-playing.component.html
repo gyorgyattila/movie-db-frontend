@@ -1,14 +1,38 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-7">
+      <h1>Now playing </h1>
     </div>
-    <div class="col-md-8">
-      <h1>Now Playing Movies</h1>
-      <hr>
+    <div class="col-md-5">
+      <div class="row">
+        <div class="input-group" style="width: 50%; align-self: center">
+          <input type="text" class="form-control" placeholder="Find Movie" name="search" matInput
+                 [matAutocomplete]="auto"
+                 [matAutocompleteConnectedTo]="origin" [(ngModel)]="searchText" [formControl]="myControl">
+          <div class="custom-wrapper-example" matAutocompleteOrigin #origin="matAutocompleteOrigin"
+               style="margin-top: 30px">
+            <mat-autocomplete #auto="matAutocomplete" style="margin-top: 20px">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option.title"
+                          style="display: block; overflow: hidden ">{{option.title}}
+              </mat-option>
+            </mat-autocomplete>
+          </div>
+
+        </div>
+      </div>
     </div>
-    <div class="col-md-2"></div>
   </div>
-  <div class="row" *ngFor="let film of films | paginate: {itemsPerPage: 5, currentPage: p}" style="margin-top: 10px">
+</div>
+
+<hr>
+<div class="row">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-8">
+  </div>
+  <div class="col-md-2"></div>
+  <div class="row" *ngFor="let film of films | filmFilter:searchText | paginate: {itemsPerPage: 5, currentPage: p}"
+       style="margin-top: 10px">
     <div class="col-md-2"></div>
     <div class="col-md-4">
       <div class="card" style="width: 18rem;">
