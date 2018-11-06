@@ -22,10 +22,8 @@ import {RouterModule} from '@angular/router';
 import {FilmFilterPipe} from './shared/film-filter.pipe';
 import {AuthService} from './services/auth.service';
 import {UserComponent} from './user/user.component';
-
-
-
-
+import {UserService} from './services/user.service';
+import {SafePipe} from './shared/safe.pipe';
 
 
 @NgModule({
@@ -37,7 +35,8 @@ import {UserComponent} from './user/user.component';
     NowPlayingComponent,
     CommentComponent,
     FilmFilterPipe,
-    UserComponent
+    UserComponent,
+    SafePipe
   ],
   imports: [
     RouterModule,
@@ -56,7 +55,7 @@ import {UserComponent} from './user/user.component';
     MatCheckboxModule,
     MatButtonModule,
   ],
-  providers: [FilmService, CommentService, AuthService],
+  providers: [FilmService, CommentService, AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

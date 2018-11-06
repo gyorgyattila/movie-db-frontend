@@ -16,7 +16,7 @@
   <hr>
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <div *ngFor="let comment of comments">
+      <div *ngFor="let comment of comments; let i = index">
         <blockquote class="quote-box">
           <p class="quotation-mark">
             “
@@ -27,15 +27,15 @@
           <hr>
           <div class="blog-post-actions">
             <p class="blog-post-bottom pull-left">
-              {{comment.userId}}
+              {{comment.userName}}
             </p>
             <p class="blog-post-bottom pull-right">
-              <span class="badge quote-badge">{{comment.voteNumber}}</span>
-              <a href="#">
-                <span class="glyphicon glyphicon-arrow-up"></span>
+              <span class="badge quote-badge" style="color: black">{{comment.voteNumber}}</span>
+              <a (click)="onVoteUp(i)">
+                <span class="glyphicon glyphicon-arrow-up" style="color: green; cursor: pointer"></span>
               </a>
-              <a href="#">
-                <span class="glyphicon glyphicon-arrow-down"></span>
+              <a (click)="onVoteDown(i)">
+                <span class="glyphicon glyphicon-arrow-down" style="color: red; cursor: pointer"></span>
               </a>
             </p>
           </div>

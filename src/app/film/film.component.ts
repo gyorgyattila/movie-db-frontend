@@ -4,6 +4,9 @@ import {FilmModel} from './film.model';
 import {FilmService} from '../services/film.service';
 import {DataStorageService} from '../shared/data-storage.service';
 import {Subscription} from 'rxjs';
+import {UserService} from '../services/user.service';
+import {UserModel} from '../user/user.model';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   providers: [DataStorageService],
@@ -13,12 +16,15 @@ import {Subscription} from 'rxjs';
 })
 export class FilmComponent implements OnInit, OnDestroy {
 
-  currentRate = 8;
+  currentRate = 0;
   id: number;
   film: FilmModel;
   subscription: Subscription;
+  userSub: Subscription;
+  user: UserModel;
 
-  constructor(private route: ActivatedRoute, private filmService: FilmService, private dataStorage: DataStorageService) {
+  constructor(private route: ActivatedRoute, private filmService: FilmService, private dataStorage: DataStorageService,
+              private userService: UserService, public authService: AuthService) {
   }
 
   ngOnInit() {
@@ -34,10 +40,15 @@ export class FilmComponent implements OnInit, OnDestroy {
       }
     );
     this.dataStorage.getFilm(String(this.id));
+    this.userSub = this.userService.user.subscribe(user => this.user = user);
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
+
+  onRateChange() {
+    this.dataStorage.rateFilm(this.currentRate);
+  }
 }

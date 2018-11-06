@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, ElementRef, ViewEncapsulation} from '@angular/core';
+import {AuthService} from './services/auth.service';
 
 
 @Component({
@@ -10,5 +11,9 @@ import {AfterViewInit, Component, ElementRef, ViewEncapsulation} from '@angular/
 })
 
 export class AppComponent {
-  url = 'http://cdn.traileraddict.com/img/bg_pattern.jpg';
+
+  constructor(public auth: AuthService) {
+    auth.handleAuthentication();
+  }
+
 }

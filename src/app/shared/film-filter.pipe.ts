@@ -14,14 +14,10 @@ export class FilmFilterPipe implements PipeTransform {
       return films;
     }
     for (const film of films) {
-      console.log(film.title);
-      console.log(searchTerm);
       if (film.title.toLowerCase().includes(searchTerm.toString().toLowerCase())) {
         resultFilms.push(film);
       }
     }
-    console.log('szia');
-    console.log(resultFilms);
     return resultFilms;
   }
 }
