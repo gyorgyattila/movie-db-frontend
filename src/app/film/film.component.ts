@@ -51,4 +51,8 @@ export class FilmComponent implements OnInit, OnDestroy {
   onRateChange() {
     this.dataStorage.rateFilm(this.currentRate);
   }
+
+  onAddWatchlist() {
+    this.dataStorage.addToWatchlist(this.id, this.user.id);
+  }
 }

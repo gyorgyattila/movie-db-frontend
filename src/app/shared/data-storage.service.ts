@@ -41,7 +41,6 @@ export class DataStorageService {
     const comments = await this.httpClient.get<CommentModel[]>(`http://0.0.0.0:8080/${id}/get-comments`).toPromise();
     const commentList: CommentModel[] = [];
     for (const comment of comments) {
-      console.log(comment);
       commentList.push(new CommentModel(comment['comment'], comment['id'], comment['userName'], comment['voteNumber']));
     }
     this.commentService.setComments(commentList);
@@ -73,5 +72,14 @@ export class DataStorageService {
 
   rateFilm(currentRate: number) {
 
+  }
+
+  async addToWatchlist(id: number, userid: string) {
+    return this.httpClient.post<void>(`http://0.0.0.0:8080/add-watchlist/${id.toString()}`, userid, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'userid': userid
+      })
+    }).toPromise();
   }
 }

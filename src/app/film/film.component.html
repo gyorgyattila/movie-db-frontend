@@ -32,7 +32,9 @@
           <h3>Overview:</h3>
           <p>{{film.overview}}</p>
           <br>
-          <button class="btn btn-primary">Add to watchlist</button>
+          <button class="btn btn-primary" *ngIf="authService.isAuthenticated()" (click)="onAddWatchlist()">Add to
+            watchlist
+          </button>
         </div>
       </div>
     </div>
