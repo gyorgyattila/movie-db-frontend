@@ -82,4 +82,13 @@ export class DataStorageService {
       })
     }).toPromise();
   }
+
+  async getWatchlist(id: string) {
+    const films = await this.httpClient.get<FilmModel[]>(`http://0.0.0.0:8080/get-watchlist/${id}`).toPromise();
+    const filmList: FilmModel[] = [];
+    for (const film of films) {
+      filmList.push(new FilmModel(film['title'], film['filmId'], 'http://image.tmdb.org/t/p/w185/' + film['poster_path'], film['vote_average'], film['overview'], ['2', '2'], film['trailer']));
+    }
+    this.filmService.setFilms(filmList);
+  }
 }

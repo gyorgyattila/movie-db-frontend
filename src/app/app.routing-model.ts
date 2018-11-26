@@ -1,9 +1,7 @@
-import {AppComponent} from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {HomeComponent} from './home/home.component';
 import {NowPlayingComponent} from './now-playing/now-playing.component';
-import {FilmModel} from './film/film.model';
 import {FilmComponent} from './film/film.component';
 import {UserComponent} from './user/user.component';
 

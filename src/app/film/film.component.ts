@@ -14,7 +14,7 @@ import {AuthService} from '../services/auth.service';
   templateUrl: './film.component.html',
   styleUrls: ['./film.component.css']
 })
-export class FilmComponent implements OnInit, OnDestroy {
+export class FilmComponent implements OnInit{
 
   currentRate = 0;
   id: number;
@@ -41,11 +41,12 @@ export class FilmComponent implements OnInit, OnDestroy {
     );
     this.dataStorage.getFilm(String(this.id));
     this.userSub = this.userService.user.subscribe(user => this.user = user);
+    console.log(this.user);
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
+  // }
 
 
   onRateChange() {

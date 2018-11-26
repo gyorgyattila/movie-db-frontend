@@ -28,7 +28,6 @@ export class UserService {
         this.newUser.id = user['id'];
         this.newUser.nickName = user['userName'];
         this.newUser.picture = user['photo'];
-        console.log(this.newUser);
         this.user.next(this.newUser);
       }
     );

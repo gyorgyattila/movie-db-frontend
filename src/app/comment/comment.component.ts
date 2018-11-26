@@ -33,7 +33,6 @@ export class CommentComponent implements OnInit {
     this.commentService.commentsChanged.subscribe(
       (comments: CommentModel[]) => {
         this.comments = comments;
-        console.log(comments);
       }
     );
     this.daraStorage.getCommentsForFilm(this.filmId.toString());
